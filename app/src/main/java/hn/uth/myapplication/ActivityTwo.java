@@ -26,16 +26,15 @@ public class ActivityTwo extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intentCreate = new Intent(getApplicationContext(), MainActivity.class);
-                
                 startActivity(intentCreate);
-
             }
         });
 
         btnList.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intentCreate = new Intent(getApplicationContext(), ActivityList.class);
+                startActivity(intentCreate);
             }
         });
 
