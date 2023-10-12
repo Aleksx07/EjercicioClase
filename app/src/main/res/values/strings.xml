@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="Apellido">Ingrese sus Apellidos</string>
+    <string name="btnAgregar">Procesar</string>
+    <string name="Respuesta">Registro ingresado con exito</string>
+    <string name="ErrorResp">Error no se pudo ingresar</string>
+</resources>
