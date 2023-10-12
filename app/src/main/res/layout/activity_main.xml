@@ -8,6 +8,10 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="167dp">
 
+
+
+
+
     <EditText
         android:id="@+id/txtNombre"
         android:layout_width="0dp"
