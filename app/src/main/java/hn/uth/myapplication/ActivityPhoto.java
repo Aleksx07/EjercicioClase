@@ -144,6 +144,10 @@ public class ActivityPhoto extends AppCompatActivity {
             Bitmap image = (Bitmap) extras.get("data");
             imageView.setImageBitmap(image);*/
 
+
+
+
+
             try {
                 File foto = new File(currentPhotoPath);
                 imageView.setImageURI(Uri.fromFile(foto));
