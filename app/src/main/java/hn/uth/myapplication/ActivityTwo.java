@@ -6,10 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Switch;
 
 public class ActivityTwo extends AppCompatActivity {
 
-    Button btnCrate, btnList, btnVoz, btnCombo;
+    Button btnCrate, btnList, btnVoz, btnCombo, btnFotoTake;
 
 
     @Override
@@ -21,40 +22,48 @@ public class ActivityTwo extends AppCompatActivity {
         btnList = (Button) findViewById(R.id.btnList);
         btnVoz = (Button) findViewById(R.id.btnVoz);
         btnCombo = (Button) findViewById(R.id.btnCombo);
+        btnFotoTake = (Button) findViewById(R.id.btnFotoTake);
 
         /* Creacion de los listener de los botones */
 
-        btnCrate.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener butonclick = new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intentCreate = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(intentCreate);
-            }
-        });
+            public void onClick(View view) {
+                Class<?> actividad = null;
 
-        btnList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentCreate = new Intent(getApplicationContext(), ActivityList.class);
-                startActivity(intentCreate);
-            }
-        });
+                if (view.getId() == R.id.btnCreate) {
+                    actividad = MainActivity.class;
+                }
+                else if(view.getId() == R.id.btnList){
+                    actividad = ActivityList.class;
 
-        btnVoz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentCreate = new Intent(getApplicationContext(), ActivityList.class);
-                startActivity(intentCreate);
-            }
-        });
+                }
+                else if(view.getId() == R.id.btnCombo){
+                    actividad = ActivityCombo.class;
 
-        btnCombo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intentCreate = new Intent(getApplicationContext(), ActivityCombo.class);
-                startActivity(intentCreate);
-            }
-        });
+                }
+                else if(view.getId() == R.id.btnFotoTake){
+                    actividad = ActivityPhoto.class;
 
+                }
+
+                if (actividad != null){
+                    NoveActivity(actividad);
+                }
+
+            }
+        };
+
+        btnCrate.setOnClickListener(butonclick);
+        btnList.setOnClickListener(butonclick);
+        btnVoz.setOnClickListener(butonclick);
+        btnCombo.setOnClickListener(butonclick);
+        btnFotoTake.setOnClickListener(butonclick);
+
+    }
+
+    private void NoveActivity( Class<?> actividad) {
+        Intent intent = new Intent(getApplicationContext(), actividad);
+        startActivity(intent);
     }
 }
